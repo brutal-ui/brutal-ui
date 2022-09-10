@@ -1,12 +1,21 @@
 module.exports = {
   "stories": [
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
+    "../stories/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
+    "@storybook/addon-interactions",
+    "storybook-addon-designs",
+    {
+      name: "@storybook/addon-postcss",
+      options: {
+        postcssLoaderOptions: {
+          implementation: require("postcss"),
+        },
+      },
+    }
+
   ],
   "framework": "@storybook/react",
   "core": {
@@ -14,5 +23,8 @@ module.exports = {
   },
   "features": {
     "storyStoreV7": true
+  },
+  "typescript": {
+    "check": true,
   }
 }
